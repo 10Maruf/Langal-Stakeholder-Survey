@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>কৃষক জরিপ ফর্ম</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #e0f7e0, #f4f9f4);
+    color: #333;
+  }
+  h2 {
+    text-align: center;
+    color: #2c662d;
+    margin: 40px 20px 20px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  form {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  form:hover { transform: translateY(-5px); }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: border 0.3s;
+  }
+  input[type="text"]:focus, textarea:focus, select:focus { border-color: #2c662d; outline: none; }
+  textarea { min-height: 80px; resize: vertical; }
+  .options { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 12px; }
+  .options label { cursor: pointer; font-size: 15px; display: flex; align-items: center; }
+  .options input[type="radio"], .options input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
+  button {
+    width: 100%;
+    background: linear-gradient(120deg,#2c662d,#145424);
+    color: #fff;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+  }
+  button:hover { background: linear-gradient(120deg,#145424,#2c662d); transform: scale(1.02); }
+  .other-input { display: none; margin-top: 10px; }
+  @media(max-width: 600px){ form { padding: 20px; } h2 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<h2>কৃষক তথ্য ও মতামত সংগ্রহ ফর্ম</h2>
+
+<form id="farmerForm">
+
+  <!-- ১ -->
+  <label>১. আপনি কোন ফসল বেশি চাষ করেন?</label>
+  <select name="crop_main" id="crop_main">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="ধান">ধান</option>
+    <option value="পাট">পাট</option>
+    <option value="আলু">আলু</option>
+    <option value="গম">গম</option>
+    <option value="সরিষা">সরিষা</option>
+    <option value="পেঁয়াজ">পেঁয়াজ</option>
+    <option value="রসুন">রসুন</option>
+    <option value="আদা">আদা</option>
+    <option value="অন্যান্য">অন্যান্য</option>
+  </select>
+  <input type="text" id="crop_other" placeholder="অন্যান্য উল্লেখ করুন" class="other-input">
+
+  <!-- ২ -->
+  <label>২. আপনার জমির পরিমাণ কত?</label>
+  <input type="text" name="land_size" placeholder="জমির আয়তন লিখুন">
+
+  <!-- ৩ -->
+  <label>৩. কিসের ভিত্তিতে আপনি ফসল নির্বাচন করেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="basis" value="season"> সিজন</label>
+    <label><input type="checkbox" name="basis" value="budget"> বাজেট</label>
+    <label><input type="checkbox" name="basis" value="profit"> লাভ</label>
+    <label><input type="checkbox" name="basis" value="other" id="basis_other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="basis_other_text" placeholder="অন্যান্য কারণ লিখুন" class="other-input">
+
+  <!-- ৪ -->
+  <label>৪. যদি আমাদের অ্যাপ আপনাকে খরচ ও লাভ দেখিয়ে ফসল সুপারিশ করে, তবে তা আপনার জন্য কতটা উপকারী হবে?</label>
+  <select name="usefulness">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="1">১ - একদম উপকারী নয়</option>
+    <option value="2">২ - কম উপকারী</option>
+    <option value="3">৩ - মধ্যম উপকারী</option>
+    <option value="4">৪ - উপকারী</option>
+    <option value="5">৫ - অত্যন্ত উপকারী</option>
+  </select>
+
+  <!-- ৫ -->
+  <label>৫. আপনি কি আমাদের দেয়া বার্ষিক পরিকল্পনা অনুসরণ করতে আগ্রহী?</label>
+  <div class="options">
+    <label><input type="radio" name="plan" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="plan" value="no"> না</label>
+    <label><input type="radio" name="plan" value="maybe"> হয়তো</label>
+  </div>
+
+  <!-- ৬ -->
+  <label>৬. ফসলের রোগের ক্ষেত্রে আপনি কিসের ভিত্তিতে সিদ্ধান্ত নেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="disease_basis_option" value="symptoms"> উপসর্গ দেখে</label>
+    <label><input type="checkbox" name="disease_basis_option" value="expert"> বিশেষজ্ঞের পরামর্শ</label>
+    <label><input type="checkbox" name="disease_basis_option" value="history"> পূর্ব অভিজ্ঞতা</label>
+    <label><input type="checkbox" name="disease_basis_option" value="other" id="disease_basis_other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="disease_basis_other_text" placeholder="অন্যান্য কারণ লিখুন" class="other-input">
+
+  <!-- ৭ -->
+  <label>৭. রোগাক্রান্ত ফসলের ছবি তুলে দিলে আমাদের অ্যাপ রোগ শনাক্তকরণ করে দেয় তা কি উপকারী হবে?</label>
+  <div class="options">
+    <label><input type="radio" name="disease_photo" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="disease_photo" value="no"> না</label>
+  </div>
+
+  <!-- ৮ -->
+  <label>৮. যদি রোগ শনাক্তকরণের পর আপনাকে রোগ থেকে মুক্তির উপায় খরচসহ দেখানো হয়, আপনি কি সেটা অনুসরণ করবেন?</label>
+  <select name="rental_app_usefulness">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="1">১ - একদম উপকারী নয়</option>
+    <option value="2">২ - কম উপকারী</option>
+    <option value="3">৩ - মাঝারি</option>
+    <option value="4">৪ - উপকারী</option>
+    <option value="5">৫ - অত্যন্ত উপকারী</option>
+  </select>
+  <!-- ৯ -->
+  <label>৯. রোগ শনাক্তকরণে কোন নির্দেশনা আপনার জন্য সবচেয়ে উপকারী হবে?</label>
+  <div class="options">
+    <label><input type="checkbox" name="guidance" value="medicine"> ওষুধ ও প্রয়োগ</label>
+    <label><input type="checkbox" name="guidance" value="cost"> খরচ</label>
+    <label><input type="checkbox" name="guidance" value="prevention"> প্রতিরোধ</label>
+    <label><input type="checkbox" name="guidance" value="expert"> বিশেষজ্ঞের যোগাযোগ</label>
+    <label><input type="checkbox" name="guidance" value="other" id="guidance_other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="guidance_other_text" placeholder="অন্যান্য নির্দেশনা লিখুন" class="other-input">
+
+  <!-- ১০ -->
+  <label>১০. আপনি কি কখনো যন্ত্রপাতি ভাড়া নিয়েছেন বা দিয়েছেন?</label>
+  <div class="options">
+    <label><input type="radio" name="rental" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="rental" value="no"> না</label>
+  </div>
+
+  <!-- ১১ -->
+  <label>১১. যদি মেশিনারি না থাকে তবে আপনি কী করবেন?</label>
+  <div class="options">
+    <label><input type="radio" name="machine" value="buy"> কিনবো</label>
+    <label><input type="radio" name="machine" value="rent"> ভাড়া নেবো</label>
+  </div>
+
+  <!-- ১২ -->
+  <label>১২. মোবাইল অ্যাপ দিয়ে যন্ত্রপাতি ভাড়া দেওয়া-নেওয়া কতটা উপকারী হবে?</label>
+  <select name="rental_app_usefulness">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="1">১ - একদম উপকারী নয়</option>
+    <option value="2">২ - কম উপকারী</option>
+    <option value="3">৩ - মাঝারি</option>
+    <option value="4">৪ - উপকারী</option>
+    <option value="5">৫ - অত্যন্ত উপকারী</option>
+  </select>
+
+  <!-- ১৩ -->
+  <label>১৩. ফসল বিক্রির সবচেয়ে বড় সমস্যা কী?</label>
+  <textarea name="selling_problem"></textarea>
+
+  <!-- ১৪ -->
+  <label>১৪. অ্যাপ ব্যবহারের জন্য আপনি কি প্রশিক্ষণ গ্রহণ করতে আগ্রহী?</label>
+  <div class="options">
+    <label><input type="radio" name="training" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="training" value="no"> না</label>
+  </div>
+
+  <!-- ১৫ -->
+  <label>১৫. কোন কারণে আপনি আমাদের অ্যাপ ব্যবহার নাও করতে পারেন?</label>
+  <textarea name="app_barrier"></textarea>
+
+  <!-- ১৬ -->
+  <label>১৬. যদি কৃষির জন্য আলাদা সোশ্যাল মিডিয়া থাকে, আপনি কি তা ব্যবহার করবেন?</label>
+  <div class="options">
+    <label><input type="radio" name="social_media" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="social_media" value="no"> না</label>
+  </div>
+
+  <!-- ১৭ -->
+  <label>১৭. আপনি কি আপনার সকল মতামত শেয়ার করবেন অন্য কৃষকদের সাথে?</label>
+  <div class="options">
+    <label><input type="radio" name="share_opinion" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="share_opinion" value="no"> না</label>
+  </div>
+
+  <!-- ১৮ -->
+  <label>১৮. আপনি কোন ধরণের পোস্ট বেশি দেখতে চান?</label>
+  <div class="options">
+    <label><input type="checkbox" name="post_type" value="info"> ফসল তথ্য</label>
+    <label><input type="checkbox" name="post_type" value="market"> বাজারদর</label>
+    <label><input type="checkbox" name="post_type" value="tech"> নতুন প্রযুক্তি</label>
+    <label><input type="checkbox" name="post_type" value="advice"> কৃষি পরামর্শ</label>
+    <label><input type="checkbox" name="post_type" value="other" id="post_type_other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="post_type_other_text" placeholder="অন্যান্য পোস্ট লিখুন" class="other-input">
+
+  <!-- ১৯ -->
+  <label>১৯. কৃষকদের জন্য আলাদা একটি প্ল্যাটফর্ম কতটা সাহায্য করবে?</label>
+  <select name="rental_app_usefulness">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="1">১ - একদম উপকারী নয়</option>
+    <option value="2">২ - কম উপকারী</option>
+    <option value="3">৩ - মাঝারি</option>
+    <option value="4">৪ - উপকারী</option>
+    <option value="5">৫ - অত্যন্ত উপকারী</option>
+  </select>
+  <button type="submit">জমা দিন</button>
+</form>
+
+<script>
+// Function for checkbox "অন্যান্য"
+function setupOther(checkboxId, inputId){
+  const checkbox = document.getElementById(checkboxId);
+  const input = document.getElementById(inputId);
+  checkbox.addEventListener('change', function(){
+    input.style.display = this.checked ? 'block':'none';
+    if(!this.checked) input.value='';
+  });
+}
+
+// Function for select "অন্যান্য"
+document.getElementById('crop_main').addEventListener('change', function(){
+  const input = document.getElementById('crop_other');
+  if(this.value==='অন্যান্য'){
+    input.style.display='block';
+  } else {
+    input.style.display='none';
+    input.value='';
+  }
+});
+
+// Setup all "অন্যান্য" checkboxes
+setupOther('basis_other','basis_other_text');
+setupOther('disease_basis_other','disease_basis_other_text');
+setupOther('guidance_other','guidance_other_text');
+setupOther('post_type_other','post_type_other_text');
+</script>
+
+</body>
+</html>

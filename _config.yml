@@ -1,0 +1,35 @@
+# GitHub Pages Configuration
+url: "https://10maruf.github.io"
+baseurl: "/langal-stakeholder-survey"
+title: "লাঙল - কৃষকের ডিজিটাল হাতিয়ার"
+description: "HTML Forms থেকে Google Forms এ রূপান্তরের জন্য স্বয়ংক্রিয় সিস্টেম"
+
+# GitHub repository
+repository: "10maruf/langal-stakeholder-survey"
+
+# Language
+lang: "bn"
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Collections
+collections:
+  forms:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+      author: "Langal Project"

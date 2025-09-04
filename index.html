@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লাঙল - কৃষকের ডিজিটাল হাতিয়ার | স্টেকহোল্ডার সার্ভে</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SolaimanLipi', 'Kalpurush', Arial, sans-serif;
+            background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px auto;
+            display: block;
+            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.3));
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-size: 1.1rem;
+            color: #C8E6C9;
+            font-style: italic;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #E8F5E8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .forms-grid {
+            padding: 40px 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .form-card {
+            background: white;
+            border: 2px solid #E8F5E8;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+        }
+
+        .form-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-title {
+            font-size: 1.4rem;
+            color: #2E7D32;
+            margin-bottom: 10px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .form-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: #F1F8E9;
+            color: #558B2F;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .form-button:hover {
+            background: linear-gradient(135deg, #388E3C, #4CAF50);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .footer {
+            background: #F8F9FA;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+            }
+            
+            .slogan {
+                font-size: 1rem;
+            }
+            
+            .forms-grid {
+                grid-template-columns: 1fr;
+                padding: 20px 15px;
+            }
+            
+            .stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 10px 15px;
+            }
+        }
+
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="logo.png" alt="লাঙল লোগো" class="logo-icon">
+                <h1>লাঙল</h1>
+                <p class="slogan">কৃষকের ডিজিটাল হাতিয়ার</p>
+            </div>
+            <h2>স্টেকহোল্ডার সার্ভে</h2>
+            <p>কৃষি খাতের সকল অংশীজনদের মতামত সংগ্রহের জন্য ডিজিটাল ফর্ম</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">টি ফর্ম</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">টি প্রশ্ন</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">বাংলা সাপোর্ট</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-grid">
+            <div class="form-card loading" style="animation-delay: 0.1s">
+                <div class="form-icon">👨‍💼</div>
+                <div class="form-title">উপজেলা কৃষি কর্মকর্তা ফর্ম</div>
+                <div class="form-meta">
+                    <span class="meta-item">4টি প্রশ্ন</span>
+                    <span class="meta-item">সরকারি কর্মকর্তা</span>
+                </div>
+                <div class="form-description">
+                    উপজেলা পর্যায়ের কৃষি কর্মকর্তাদের জন্য তথ্য সংগ্রহ ও মতামত নেওয়ার ফর্ম। কৃষি নীতি বাস্তবায়ন ও ভর্তুকি ব্যবস্থাপনা সংক্রান্ত প্রশ্ন রয়েছে।
+                </div>
+                <a href="https://forms.gle/kSiX3a97PfUbBP888" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+
+            <div class="form-card loading" style="animation-delay: 0.2s">
+                <div class="form-icon">🏪</div>
+                <div class="form-title">বাজার নিয়ন্ত্রণ পরিচালকের প্রশ্নাবলি</div>
+                <div class="form-meta">
+                    <span class="meta-item">5টি প্রশ্ন</span>
+                    <span class="meta-item">বাজার নিয়ন্ত্রণ</span>
+                </div>
+                <div class="form-description">
+                    স্থানীয় বাজার নিয়ন্ত্রণ ও পরিচালনার সাথে জড়িত কর্মকর্তাদের জন্য। ডিজিটাল মার্কেটপ্লেস ও মূল্য নিয়ন্ত্রণ সংক্রান্ত মতামত।
+                </div>
+                <a href="https://forms.gle/s8Rs2AmFDLFWWT2i8" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+
+            <div class="form-card loading" style="animation-delay: 0.3s">
+                <div class="form-icon">🌱</div>
+                <div class="form-title">কৃষি সম্প্রসারণ কর্মকর্তা ফর্ম</div>
+                <div class="form-meta">
+                    <span class="meta-item">3টি প্রশ্ন</span>
+                    <span class="meta-item">সম্প্রসারণ সেবা</span>
+                </div>
+                <div class="form-description">
+                    কৃষি সম্প্রসারণ কর্মকর্তাদের জন্য বিশেষ ফর্ম। কৃষকদের তথ্য যাচাই ও ডিজিটাল প্ল্যাটফর্মের ব্যবহার সংক্রান্ত প্রশ্ন।
+                </div>
+                <a href="https://forms.gle/v4qhyWpyXagaMTgN8" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+
+            <div class="form-card loading" style="animation-delay: 0.4s">
+                <div class="form-icon">👨‍🌾</div>
+                <div class="form-title">কৃষক জরিপ ফর্ম</div>
+                <div class="form-meta">
+                    <span class="meta-item">17টি প্রশ্ন</span>
+                    <span class="meta-item">মূল ব্যবহারকারী</span>
+                </div>
+                <div class="form-description">
+                    কৃষকদের জন্য প্রধান জরিপ ফর্ম। ফসল নির্বাচন, রোগ নির্ণয়, যন্ত্রপাতি ভাড়া, ডিজিটাল প্ল্যাটফর্ম ব্যবহার সংক্রান্ত বিস্তারিত তথ্য।
+                </div>
+                <a href="https://forms.gle/iCSB2Xzm5cdBXNx96" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+
+            <div class="form-card loading" style="animation-delay: 0.5s">
+                <div class="form-icon">🛒</div>
+                <div class="form-title">ক্রেতা তথ্য ও মতামত ফর্ম</div>
+                <div class="form-meta">
+                    <span class="meta-item">8টি প্রশ্ন</span>
+                    <span class="meta-item">ক্রেতা সেবা</span>
+                </div>
+                <div class="form-description">
+                    কৃষি পণ্যের ক্রেতাদের জন্য ফর্ম। ক্রয় অভ্যাস, পেমেন্ট পদ্ধতি, ডিজিটাল প্ল্যাটফর্মের ব্যবহার ও অভিজ্ঞতা সংক্রান্ত।
+                </div>
+                <a href="https://forms.gle/QVKnav3tLY7BRzqU7" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+
+            <div class="form-card loading" style="animation-delay: 0.6s">
+                <div class="form-icon">🔬</div>
+                <div class="form-title">কৃষিবিদ জরিপ ফর্ম</div>
+                <div class="form-meta">
+                    <span class="meta-item">8টি প্রশ্ন</span>
+                    <span class="meta-item">বিশেষজ্ঞ মতামত</span>
+                </div>
+                <div class="form-description">
+                    কৃষিবিদ ও কৃষি বিশেষজ্ঞদের জন্য। রোগ নির্ণয়, পরামর্শ সেবা, ডিজিটাল প্ল্যাটফর্মে কনটেন্ট তৈরি সংক্রান্ত বিস্তারিত মতামত।
+                </div>
+                <a href="https://forms.gle/2jNbiBwcsszyhLBJ8" class="form-button" target="_blank">
+                    ফর্ম পূরণ করুন →
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>লাঙল</strong> - কৃষকের ডিজিটাল হাতিয়ার | কৃষি খাতের ডিজিটাল রূপান্তরের জন্য স্টেকহোল্ডার গবেষণা</p>
+            <div class="footer-links">
+                <a href="#about">প্রকল্প সম্পর্কে</a>
+                <a href="#contact">যোগাযোগ</a>
+                <a href="#privacy">গোপনীয়তা নীতি</a>
+                <a href="#help">সাহায্য</a>
+            </div>
+            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
+                © 2025 লাঙল প্রকল্প। সকল তথ্য গোপনীয় ও নিরাপদ রাখা হবে।
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.form-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                }, index * 100);
+            });
+
+            // Add click analytics (optional)
+            document.querySelectorAll('.form-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const formTitle = this.closest('.form-card').querySelector('.form-title').textContent;
+                    console.log('Form clicked:', formTitle);
+                    
+                    // Optional: Send analytics
+                    // gtag('event', 'form_click', { 'form_name': formTitle });
+                });
+            });
+
+            // Add hover effects
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Simple page load analytics
+        console.log('Langal Stakeholder Survey Page Loaded');
+        console.log('Total Forms Available: 6');
+        console.log('Total Questions: 45');
+    </script>
+</body>
+</html>

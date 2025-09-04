@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>কৃষিবিদ জরিপ ফর্ম</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #e0f7e0, #f4f9f4);
+    color: #333;
+  }
+  h2 {
+    text-align: center;
+    color: #2c662d;
+    margin: 40px 20px 20px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  form {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: border 0.3s;
+  }
+  input[type="text"]:focus, textarea:focus, select:focus { border-color: #2c662d; outline: none; }
+  textarea { min-height: 80px; resize: vertical; }
+  .options { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 12px; }
+  .options label { cursor: pointer; font-size: 15px; display: flex; align-items: center; }
+  .options input[type="radio"], .options input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
+  button {
+    width: 100%;
+    background: linear-gradient(120deg,#2c662d,#145424);
+    color: #fff;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+  }
+  button:hover { background: linear-gradient(120deg,#145424,#2c662d); transform: scale(1.02); }
+  .other-input { display: none; margin-top: 10px; }
+  @media(max-width: 600px){ form { padding: 20px; } h2 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<h2>কৃষিবিদ তথ্য ও মতামত সংগ্রহ ফর্ম</h2>
+
+<form id="agronomistForm">
+
+  <!-- ১ -->
+  <label>১. কৃষকরা কত সময় পরপর আপনার কাছে আসে?</label>
+  <select name="visit_frequency">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="weekly">সাপ্তাহিক</option>
+    <option value="monthly">মাসিক</option>
+    <option value="seasonal">মৌসুমভিত্তিক</option>
+    <option value="other">অন্যান্য</option>
+  </select>
+  <input type="text" class="other-input" placeholder="অন্যান্য লিখুন">
+
+ <!-- ২ -->
+<label>২. সবচেয়ে বেশি কোন সমস্যায় তারা আসে?</label>
+<select name="main_problem">
+  <option value="">-- নির্বাচন করুন --</option>
+  <option value="pest_disease">ফসলের রোগ / পোকামাকড়ের আক্রমণ</option>
+  <option value="water_issue">সেচ / জলাবদ্ধতার সমস্যা</option>
+  <option value="fertilizer_issue">সার / কীটনাশক সমস্যা</option>
+  <option value="seed_quality">বীজের মান / উৎপাদন সমস্যা</option>
+  <option value="market_price">বাজারে মূল্য কম পাওয়া</option>
+  <option value="other">অন্যান্য</option>
+</select>
+<input type="text" class="other-input" placeholder="অন্যান্য লিখুন">
+
+  <!-- ৩ -->
+  <label>৩. ছবি/ভিডিও দিয়ে রোগ শনাক্ত করতে পারলে কি উপকার হবে?</label>
+  <div class="options">
+    <label><input type="radio" name="photo_diagnosis" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="photo_diagnosis" value="no"> না</label>
+      </div>
+
+
+  <!-- ৪ -->
+  <label>৪. কোন যোগাযোগ মাধ্যম আপনার মতে সবচেয়ে কার্যকর?</label>
+  <select name="contact_method">
+    <option value="">-- নির্বাচন করুন --</option>
+    <option value="phone">ফোন</option>
+    <option value="email">ইমেইল</option>
+    <option value="social_media">সোশ্যাল মিডিয়া</option>
+    <option value="other">অন্যান্য</option>
+  </select>
+  <input type="text" class="other-input" placeholder="অন্যান্য লিখুন">
+
+  <!-- ৫ -->
+<label>৫. কোন তথ্য পেলে আপনি সঠিক পরামর্শ দিতে পারবেন?</label>
+<div class="options">
+  <label><input type="checkbox" name="info_needed" value="crop_type"> ফসলের ধরন ও বয়স</label>
+  <label><input type="checkbox" name="info_needed" value="soil_water"> জমির মাটি ও সেচের তথ্য</label>
+  <label><input type="checkbox" name="info_needed" value="history"> পূর্ববর্তী রোগ / পোকামাকড়ের ইতিহাস</label>
+  <label><input type="checkbox" name="info_needed" value="weather"> আবহাওয়া ও জলবায়ু তথ্য</label>
+  <label><input type="checkbox" name="info_needed" value="fertilizer"> ব্যবহৃত সার / কীটনাশকের তথ্য</label>
+  <label><input type="checkbox" name="info_needed" value="other" id="info_needed_other"> অন্যান্য</label>
+</div>
+<input type="text" id="info_needed_other_text" placeholder="অন্যান্য তথ্য লিখুন" class="other-input">
+
+
+  <!-- ৬ -->
+  <label>৬. আপনি কি এগ্রিহাব-এ নিয়মিত পোস্ট বা পরামর্শ দিতে আগ্রহী?</label>
+  <div class="options">
+    <label><input type="radio" name="post_interest" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="post_interest" value="no"> না</label>
+      </div>
+  
+
+  <!-- ৭ -->
+  <label>৭. কৃষকদের জন্য কোন ধরনের কনটেন্ট সবচেয়ে জরুরি বলে মনে করেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="content_type" value="info"> ফসল তথ্য</label>
+    <label><input type="checkbox" name="content_type" value="market"> বাজারদর</label>
+    <label><input type="checkbox" name="content_type" value="tech"> নতুন প্রযুক্তি</label>
+    <label><input type="checkbox" name="content_type" value="advice"> কৃষি পরামর্শ</label>
+    <label><input type="checkbox" name="content_type" value="other"> অন্যান্য</label>
+  </div>
+  <input type="text" class="other-input" placeholder="অন্যান্য লিখুন">
+
+  <!-- ৮ -->
+  <label>৮. আপনি কি মনে করেন এই প্ল্যাটফর্ম কৃষকদের ভুল ধারণা কমাতে সহায়ক হবে?</label>
+  <div class="options">
+    <label><input type="radio" name="platform_help" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="platform_help" value="no"> না</label>
+  </div>
+
+  <button type="submit">জমা দিন</button>
+</form>
+
+<script>
+  // সব "অন্যান্য" অপশন স্বয়ংক্রিয়ভাবে হ্যান্ডেল
+  document.addEventListener('change', function(e){
+    const el = e.target;
+    const parentForm = el.closest('form');
+    if(!parentForm) return;
+
+    let otherInput = null;
+
+    // Radio / Checkbox "other"
+    if((el.type==='radio' || el.type==='checkbox') && el.value==='other'){
+      otherInput = Array.from(parentForm.querySelectorAll('.other-input')).find(input => input.previousElementSibling.contains(el));
+      if(!otherInput) otherInput = el.closest('div').nextElementSibling;
+      otherInput.style.display = el.checked ? 'block':'none';
+      if(!el.checked) otherInput.value='';
+    }
+
+    // Select "other"
+    if(el.tagName==='SELECT' && el.value==='other'){
+      otherInput = el.nextElementSibling;
+      otherInput.style.display = 'block';
+    } else if(el.tagName==='SELECT'){
+      otherInput = el.nextElementSibling;
+      if(otherInput && otherInput.classList.contains('other-input')) {
+        otherInput.style.display='none';
+        otherInput.value='';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

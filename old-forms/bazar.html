@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বাজার নিয়ন্ত্রণ পরিচালকের প্রশ্নাবলি</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>বাজার নিয়ন্ত্রণ পরিচালকের প্রশ্নাবলি</h2>
+  <form>
+    <!-- প্রশ্ন ১ -->
+    <div class="question">
+      <label>1. স্থানীয় বাজার নিয়ন্ত্রণের সবচেয়ে বড় সমস্যা কী?</label>
+      <input type="radio" name="q1" value="মূল্য অস্থিরতা"> মূল্য অস্থিরতা <br>
+      <input type="radio" name="q1" value="মধ্যস্বত্বভোগীর প্রভাব"> মধ্যস্বত্বভোগীর প্রভাব <br>
+      <input type="radio" name="q1" value="তথ্যের অভাব"> তথ্যের অভাব <br>
+      <input type="radio" name="q1" value="অন্যান্য" onclick="toggleTextbox('q1_other')"> অন্যান্য <br>
+      <input type="text" id="q1_other" class="hidden" placeholder="অন্যান্য সমস্যা লিখুন">
+    </div>
+
+    <!-- প্রশ্ন ২ -->
+    <div class="question">
+      <label>2. কৃষক সরাসরি পণ্য বিক্রি করলে কি উপকার হবে?</label>
+      <input type="radio" name="q2" value="হ্যাঁ"> হ্যাঁ <br>
+      <input type="radio" name="q2" value="না"> না <br>
+      <input type="radio" name="q2" value="কিছু সমস্যা হতে পারে" onclick="toggleTextbox('q2_problem')"> কিছু সমস্যা হতে পারে <br>
+      <input type="text" id="q2_problem" class="hidden" placeholder="সমস্যাটি লিখুন">
+    </div>
+
+    <!-- প্রশ্ন ৩ -->
+    <div class="question">
+      <label>3. রিভিউ সিস্টেম কতটা কার্যকর হবে?</label>
+      <input type="radio" name="q3" value="খুব কার্যকর"> খুব কার্যকর <br>
+      <input type="radio" name="q3" value="মোটামুটি কার্যকর"> মোটামুটি কার্যকর <br>
+      <input type="radio" name="q3" value="অকার্যকর"> অকার্যকর <br>
+    </div>
+
+    <!-- প্রশ্ন ৪ -->
+    <div class="question">
+      <label>4. সরকারি দাম কি অ্যাপে দেখানো উচিত?</label>
+      <input type="radio" name="q4" value="হ্যাঁ"> হ্যাঁ <br>
+      <input type="radio" name="q4" value="না"> না <br>
+    </div>
+
+    <!-- প্রশ্ন ৫ -->
+    <div class="question">
+      <label>5. ডিজিটাল মার্কেটপ্লেসের ঝুঁকি কী হতে পারে?</label>
+      <input type="checkbox" name="q5" value="ভুয়া বিক্রেতা"> ভুয়া বিক্রেতা <br>
+      <input type="checkbox" name="q5" value="মূল্য জালিয়াতি"> মূল্য জালিয়াতি <br>
+      <input type="checkbox" name="q5" value="পেমেন্ট জালিয়াতি"> পেমেন্ট জালিয়াতি <br>
+      <input type="checkbox" name="q5" value="অন্যান্য" onclick="toggleTextbox('q5_other')"> অন্যান্য <br>
+      <input type="text" id="q5_other" class="hidden" placeholder="অন্যান্য ঝুঁকি লিখুন">
+    </div>
+  </form>
+
+  <script>
+    function toggleTextbox(id) {
+      const box = document.getElementById(id);
+      if (box.classList.contains("hidden")) {
+        box.classList.remove("hidden");
+      } else {
+        box.classList.add("hidden");
+      }
+    }
+  </script>
+</body>
+</html>

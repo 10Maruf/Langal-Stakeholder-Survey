@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>কৃষি সম্প্রসারণ কর্মকর্তা ফর্ম</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #e0f7e0, #f4f9f4);
+    color: #333;
+  }
+  h2 {
+    text-align: center;
+    color: #2c662d;
+    margin: 40px 20px 20px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  form {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  form:hover { transform: translateY(-5px); }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: border 0.3s;
+  }
+  input[type="text"]:focus, textarea:focus, select:focus { border-color: #2c662d; outline: none; }
+  textarea { min-height: 80px; resize: vertical; }
+  .options { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 12px; }
+  .options label { cursor: pointer; font-size: 15px; display: flex; align-items: center; }
+  .options input[type="radio"], .options input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
+  button {
+    width: 100%;
+    background: linear-gradient(120deg,#2c662d,#145424);
+    color: #fff;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+  }
+  button:hover { background: linear-gradient(120deg,#145424,#2c662d); transform: scale(1.02); }
+  .other-input { display: none; margin-top: 10px; }
+  @media(max-width: 600px){ form { padding: 20px; } h2 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<h2>কৃষি সম্প্রসারণ কর্মকর্তার তথ্য ও মতামত ফর্ম</h2>
+
+<form id="extensionForm">
+
+  <!-- ১ -->
+  <label>১. আপনি কীভাবে কৃষকের তথ্য যাচাই করেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="info_verification" value="field_visit"> মাঠ পরিদর্শন</label>
+    <label><input type="checkbox" name="info_verification" value="phone_call"> ফোন/মেসেজে যোগাযোগ</label>
+    <label><input type="checkbox" name="info_verification" value="records"> রেকর্ড/ডকুমেন্ট যাচাই</label>
+    <label><input type="checkbox" name="info_verification" value="other" id="info_verification_other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="info_verification_other_text" placeholder="অন্যান্য পদ্ধতি লিখুন" class="other-input">
+
+  <!-- ২ -->
+  <label>২. ছবি ভিত্তিক যাচাই কি নির্ভুলতা বাড়াবে?</label>
+  <div class="options">
+    <label><input type="radio" name="photo_verification" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="photo_verification" value="no"> না</label>
+  </div>
+ 
+
+  <!-- ৩ -->
+  <label>৩. লাঙল কীভাবে আপনার কাজ সহজ করতে পারে?</label>
+  <textarea name="langol_help"></textarea>
+
+  <button type="submit">জমা দিন</button>
+</form>
+
+<script>
+  function handleOther(checkbox, input) {
+    checkbox.addEventListener('change', function(){
+      if(this.checked || (this.type==='radio' && this.checked)) {
+        input.style.display = 'block';
+      } else {
+        input.style.display = 'none';
+        input.value = '';
+      }
+    });
+  }
+
+  // Checkbox/Radio "অন্যান্য" হ্যান্ডেল
+  handleOther(document.getElementById('info_verification_other'), document.getElementById('info_verification_other_text'));
+  handleOther(document.getElementById('photo_verification_other'), document.getElementById('photo_verification_other_text'));
+</script>
+
+</body>
+</html>

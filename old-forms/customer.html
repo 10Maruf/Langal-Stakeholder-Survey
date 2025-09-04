@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ক্রেতা তথ্য ও মতামত ফর্ম</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #e0f7e0, #f4f9f4);
+    color: #333;
+  }
+  h2 {
+    text-align: center;
+    color: #2c662d;
+    margin: 40px 20px 20px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  form {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  form:hover { transform: translateY(-5px); }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: border 0.3s;
+  }
+  input[type="text"]:focus, textarea:focus, select:focus { border-color: #2c662d; outline: none; }
+  textarea { min-height: 80px; resize: vertical; }
+  .options { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 12px; }
+  .options label { cursor: pointer; font-size: 15px; display: flex; align-items: center; }
+  .options input[type="radio"], .options input[type="checkbox"] { transform: scale(1.1); margin-right: 8px; }
+  button {
+    width: 100%;
+    background: linear-gradient(120deg,#2c662d,#145424);
+    color: #fff;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+  }
+  button:hover { background: linear-gradient(120deg,#145424,#2c662d); transform: scale(1.02); }
+  .other-input { display: none; margin-top: 10px; }
+  @media(max-width: 600px){ form { padding: 20px; } h2 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<h2>ক্রেতা তথ্য ও মতামত ফর্ম</h2>
+
+<form id="buyerForm">
+
+  <!-- ১ -->
+  <label>১. আপনি সাধারণত কীভাবে ফসল অথবা যন্ত্রপাতি কিনেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="purchase_method" value="market"> বাজার থেকে</label>
+    <label><input type="checkbox" name="purchase_method" value="direct_farmer"> কৃষকের কাছ থেকে সরাসরি</label>
+    <label><input type="checkbox" name="purchase_method" value="online"> অনলাইনে</label>
+  </div>
+
+  <!-- ২ -->
+  <label>২. কৃষক সরাসরি তালিকাভুক্ত পণ্য কি আপনি নায্যমূল্যে কিনবেন?</label>
+  <div class="options">
+    <label><input type="radio" name="buy_fair_price" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="buy_fair_price" value="no"> না</label>
+  </div>
+
+  <!-- ৩ -->
+  <label>৩. পণ্য কেনার জন্য কোন তথ্য আপনার জন্য সবচেয়ে জরুরি?</label>
+  <div class="options">
+    <label><input type="checkbox" name="important_info" value="price"> দাম</label>
+    <label><input type="checkbox" name="important_info" value="quality"> গুণমান</label>
+    <label><input type="checkbox" name="important_info" value="seller_info"> বিক্রেতার তথ্য</label>
+  </div>
+
+  <!-- ৪ -->
+  <label>৪. কোন পেমেন্ট পদ্ধতি পছন্দ করবেন?</label>
+  <div class="options">
+    <label><input type="radio" name="payment_method" value="cash"> নগদ</label>
+    <label><input type="radio" name="payment_method" value="bKash"> বিকাশ</label>
+    <label><input type="radio" name="payment_method" value="bank"> ব্যাংক ট্রান্সফার</label>
+  </div>
+
+  <!-- ৫ -->
+  <label>৫. কোন কারণে আপনি অ্যাপ ব্যবহার নাও করতে পারেন?</label>
+  <textarea name="app_barrier"></textarea>
+
+  <!-- ৬ -->
+  <label>৬. আপনি কি কৃষকদের পোস্ট দেখে ফসল/যন্ত্রপাতি সম্পর্কে জানতে আগ্রহী হবেন?</label>
+  <div class="options">
+    <label><input type="radio" name="interest_posts" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="interest_posts" value="no"> না</label>
+  </div>
+
+  <!-- ৭ -->
+  <label>৭. এগ্রিহাব-এ যদি কৃষকরা তাদের পণ্য বা বাজার অভিজ্ঞতা পোস্ট করে, তাহলে সেটা কি আপনাকে ক্রয়ের সিদ্ধান্ত নিতে সাহায্য করবে?</label>
+  <div class="options">
+    <label><input type="radio" name="help_decision" value="yes"> হ্যাঁ</label>
+    <label><input type="radio" name="help_decision" value="no"> না</label>
+  </div>
+
+  <!-- ৮ -->
+  <label>৮. আপনি কোন ধরনের পোস্ট বেশি পছন্দ করবেন?</label>
+  <div class="options">
+    <label><input type="checkbox" name="post_type" value="info"> ফসল তথ্য</label>
+    <label><input type="checkbox" name="post_type" value="market"> বাজারদর</label>
+    <label><input type="checkbox" name="post_type" value="tech"> নতুন প্রযুক্তি</label>
+    <label><input type="checkbox" name="post_type" value="advice"> কৃষি পরামর্শ</label>
+    <label><input type="checkbox" id="post_type_other" name="post_type" value="other"> অন্যান্য</label>
+  </div>
+  <input type="text" id="post_type_other_text" placeholder="অন্যান্য পোস্ট লিখুন" class="other-input">
+
+  <button type="submit">জমা দিন</button>
+</form>
+
+<script>
+  function handleOther(checkbox, input) {
+    checkbox.addEventListener('change', function(){
+      if(this.checked) {
+        input.style.display = 'block';
+      } else {
+        input.style.display = 'none';
+        input.value = '';
+      }
+    });
+  }
+
+  // শুধু ৮ নম্বর প্রশ্নে "অন্যান্য" হ্যান্ডেল
+  handleOther(document.getElementById('post_type_other'), document.getElementById('post_type_other_text'));
+</script>
+
+</body>
+</html>
